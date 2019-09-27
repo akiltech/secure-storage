@@ -1,6 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { StorageInterface } from '../interfaces/storage.interface';
 /**
+ * Module config
+ */
+import { CryptConfig, CRYPT_CONFIG } from '../secure-storage.module';
+/**
  * Vendor
  */
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
@@ -17,8 +21,12 @@ export class SecureSessionStorageService implements StorageInterface {
    * Secure session storage constructor.
    *
    * @param {StorageService} storage
+   * @param config
    */
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService) { }
+  constructor(
+    @Inject(SESSION_STORAGE) private storage: StorageService,
+    @Inject(CRYPT_CONFIG) private config: CryptConfig
+  ) { }
 
   /**
    * Clean storage.

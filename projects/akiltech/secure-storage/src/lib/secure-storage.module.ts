@@ -17,7 +17,7 @@ export interface CryptConfig {
 /**
  * Define injectionToken.
  */
-export const CryptConfigService = new InjectionToken<CryptConfig>(
+export const CRYPT_CONFIG = new InjectionToken<CryptConfig>(
   'CryptConfig'
 );
 
@@ -34,7 +34,7 @@ export class SecureStorageModule {
         CryptService,
         SecureSessionStorageService,
         SecureLocalStorageService,
-        { provide: CryptConfigService, useValue: config }
+        { provide: CRYPT_CONFIG, useValue: config }
       ]
     };
   }
