@@ -1,5 +1,7 @@
 # Secure Storage
 
+[[toc]]
+
 ## Installation
 
 ## Configuration
