@@ -16,34 +16,34 @@ export interface StorageInterface {
   /**
    * Check storage has key.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   has(key: string): Observable<boolean>;
 
   /**
    * Get storage key value.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<string>}
+   * @returns Observable<string>
    */
   get(key: string): Observable<string>;
 
   /**
    * Destroy storage key.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   destroy(key: string): Observable<boolean>;
 
   /**
    * Clean storage.
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   clean(): Observable<boolean>;
 }

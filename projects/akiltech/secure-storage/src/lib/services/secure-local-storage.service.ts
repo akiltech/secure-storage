@@ -1,14 +1,17 @@
 import { Injectable, Inject } from '@angular/core';
 import { StorageInterface } from '../interfaces/storage.interface';
+
 /**
  * Module config.
  */
 import { CryptConfig, CRYPT_CONFIG } from '../config';
+
 /**
  * Vendor.
  */
 import { CryptService } from './crypt.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+
 /**
  * RxJS.
  */
