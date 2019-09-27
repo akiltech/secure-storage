@@ -1,0 +1,7 @@
+# Add files here to ignore them from prettier formatting
+package.json
+package-lock.json
+yarn.lock
+tslint.json
+tsconfig.json
+*.yml

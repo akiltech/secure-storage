@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@akiltech/secure-storage": [
+        "dist/akiltech/secure-storage"
+      ],
+      "@akiltech/secure-storage/*": [
+        "dist/akiltech/secure-storage/*"
+      ]
+    }
   }
 }
