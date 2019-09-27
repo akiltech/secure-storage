@@ -3,7 +3,7 @@ import { StorageInterface } from '../interfaces/storage.interface';
 /**
  * Module config
  */
-import { CryptConfig, CRYPT_CONFIG } from '../secure-storage.module';
+import { CryptConfig, CRYPT_CONFIG } from '../config';
 /**
  * Vendor
  */
@@ -20,7 +20,7 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Secure session storage constructor.
    *
-   * @param {StorageService} storage
+   * @param storage
    * @param config
    */
   constructor(
@@ -31,7 +31,7 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Clean storage.
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   clean(): Observable<boolean> {
     return undefined;
@@ -40,9 +40,9 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Destroy storage key.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   destroy(key: string): Observable<boolean> {
     return undefined;
@@ -51,9 +51,9 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Get storage key value.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<string>}
+   * @returns Observable<string>
    */
   get(key: string): Observable<string> {
     return undefined;
@@ -62,9 +62,9 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Check storage has key.
    *
-   * @param {string} key
+   * @param key
    *
-   * @returns {Observable<boolean>}
+   * @returns Observable<boolean>
    */
   has(key: string): Observable<boolean> {
     return undefined;
@@ -72,10 +72,10 @@ export class SecureSessionStorageService implements StorageInterface {
   /**
    * Put storage.
    *
-   * @param {string} key
-   * @param {string} value
+   * @param key
+   * @param value
    *
-   * @returns {Observable<string | null>}
+   * @returns Observable<string | null>
    */
   put(key: string, value: string): Observable<string | null> {
     return undefined;

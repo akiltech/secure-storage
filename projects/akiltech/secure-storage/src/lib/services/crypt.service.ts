@@ -1,5 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
-import { CryptConfig, CRYPT_CONFIG } from '../secure-storage.module';
+/**
+ * Module config.
+ */
+import { CryptConfig, CRYPT_CONFIG } from '../config';
 /**
  * Tiers part.
  */
@@ -11,21 +14,17 @@ import * as cryptoJS from 'crypto-js';
 export class CryptService {
   /**
    * Secret key
-   *
-   * @type {string}
    */
   private secretKey: string;
 
   /**
    * Crypt service constructor.
    *
-   * @param {CryptConfig} config
+   * @param config
    */
   constructor(@Inject(CRYPT_CONFIG) private config: CryptConfig) {
     /**
      * Set secret key.
-     *
-     * @type {string}
      */
     this.secretKey = config ? config.secretKey : '3BhAPCKOBetWc4z4u76n6kdKVsZsuOZ9';
   }
@@ -33,50 +32,55 @@ export class CryptService {
   /**
    * Encrypt key
    *
-   * @param {string} key
-   * @returns {string}
+   * @param key
+   *
+   * @returns string
    */
-  static encryptKey(key: string) {
+  encryptKey(key: string) {
     return cryptoJS.MD5(key, this.secretKey).toString();
   }
 
   /**
    * Encrypt string
    *
-   * @returns {string}
    * @param value
+   *
+   * @returns string
    */
-  static encryptString(value: string) {
+  encryptString(value: string): string {
     return cryptoJS.AES.encrypt(value, this.secretKey).toString();
   }
 
   /**
-   * Decrypt string
+   * Decrypt string.
    *
-   * @param {string} value
-   * @returns {string}
+   * @param value
+   *
+   * @returns string
    */
-  static decryptString(value: string) {
+  decryptString(value: string): string {
     return cryptoJS.AES.decrypt(value, this.secretKey).toString(cryptoJS.enc.Utf8);
   }
 
   /**
-   * Encrypt string
+   * Encrypt string.
    *
-   * @returns {string}
    * @param value
+   *
+   * @returns string
    */
-  static encryptJson(value: string) {
+  encryptJson(value: string): string {
     return cryptoJS.AES.encrypt(JSON.stringify(value), this.secretKey).toString();
   }
 
   /**
-   * Decrypt string
+   * Decrypt string.
    *
-   * @param {string} value
-   * @returns {string}
+   * @param value
+   *
+   * @returns string
    */
-  static decryptJson(value: string) {
+  decryptJson(value: string) {
     return JSON.parse(cryptoJS.AES.decrypt(value, this.secretKey).toString(cryptoJS.enc.Utf8));
   }
 }

@@ -1,29 +1,16 @@
-import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 /**
  * Module services.
  */
 import { CryptService } from './services/crypt.service';
 import { SecureSessionStorageService } from './services/secure-session-storage.service';
 import { SecureLocalStorageService } from './services/secure-local-storage.service';
-
-/**
- * Service config.
- */
-export interface CryptConfig {
-  secretKey: string;
-  encryptKey?: boolean;
-}
-
-/**
- * Define injectionToken.
- */
-export const CRYPT_CONFIG = new InjectionToken<CryptConfig>(
-  'CryptConfig'
-);
+import { CryptConfig, CRYPT_CONFIG } from './config';
 
 @NgModule({
   declarations: [],
   imports: [],
+  providers: [],
   exports: []
 })
 export class SecureStorageModule {
