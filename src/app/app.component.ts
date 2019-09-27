@@ -11,6 +11,10 @@ export class AppComponent {
 
   constructor(private localStorage: SecureLocalStorageService) {
     this.localStorage.put('token', '3BhAPCKOBetWc4z4u76n6kdKVsZsuOZ9').subscribe((res) => {
+      console.log('store', res);
+    });
+
+    this.localStorage.has('token').subscribe((res) => {
       console.log(res);
     });
   }

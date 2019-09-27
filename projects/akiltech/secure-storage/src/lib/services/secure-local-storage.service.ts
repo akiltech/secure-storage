@@ -73,7 +73,15 @@ export class SecureLocalStorageService implements StorageInterface {
    * @returns Observable<boolean>
    */
   has(key: string): Observable<boolean> {
-    return undefined;
+    return new Observable(observer => {
+      if (!this.storage.has(
+        this.config.encryptKey ? this.cryptService.encryptKey(key) : key
+      )) {
+        return observer.next(false);
+      }
+
+      return observer.next(true);
+    });
   }
 
   /**

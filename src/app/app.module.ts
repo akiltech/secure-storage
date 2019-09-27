@@ -14,7 +14,7 @@ import { SecureStorageModule } from '@akiltech/secure-storage';
     AppRoutingModule,
     SecureStorageModule.forRoot({
       secretKey: '3BhAPCKOBetWc4z4u76n6kdKVsZsuOZ9',
-      encryptKey: true,
+      encryptKey: false,
     })
   ],
   providers: [],
