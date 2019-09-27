@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:packgr": "ng build @akiltech/secure-storage"
+    "build:packgr": "ng build @akiltech/secure-storage --watch"
   },
   "private": true,
   "dependencies": {

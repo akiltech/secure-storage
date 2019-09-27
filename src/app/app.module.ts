@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SecureStorageModule } from '@akiltech/secure-storage';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SecureStorageModule.forRoot({
+      secretKey: '3BhAPCKOBetWc4z4u76n6kdKVsZsuOZ9',
+      encryptKey: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,12 +6,12 @@ export interface StorageInterface {
   /**
    * Put storage.
    *
-   * @param {string} key
-   * @param {string} value
+   * @param key
+   * @param value
    *
-   * @returns {Observable<string | null>}
+   * @returns Observable<any>
    */
-  put(key: string, value: string): Observable<string | null>;
+  put(key: string, value: string): Observable<any>;
 
   /**
    * Check storage has key.

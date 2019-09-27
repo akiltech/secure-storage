@@ -7,6 +7,7 @@ import { CryptConfig, CRYPT_CONFIG } from '../config';
 /**
  * Vendor.
  */
+import { CryptService } from './crypt.service';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 /**
  * RxJS.
@@ -22,10 +23,12 @@ export class SecureLocalStorageService implements StorageInterface {
    *
    * @param storage
    * @param config
+   * @param cryptService
    */
   constructor(
     @Inject(LOCAL_STORAGE) private storage: StorageService,
-    @Inject(CRYPT_CONFIG) private config: CryptConfig
+    @Inject(CRYPT_CONFIG) private config: CryptConfig,
+    private cryptService: CryptService
   ) { }
 
   /**
@@ -69,15 +72,27 @@ export class SecureLocalStorageService implements StorageInterface {
   has(key: string): Observable<boolean> {
     return undefined;
   }
+
   /**
    * Put storage.
    *
    * @param key
    * @param value
    *
-   * @returns Observable<string | null>
+   * @returns Observable<any>
    */
-  put(key: string, value: string): Observable<string | null> {
-    return undefined;
+  put(key: string, value: string): Observable<any> {
+    return new Observable(observer => {
+      if (!key || !value) {
+        return observer.next(false);
+      }
+
+      const response = this.storage.set(
+        this.config.encryptKey ? this.cryptService.encryptKey(key) : key,
+        this.cryptService.encryptString(value)
+      );
+
+      return observer.next(true);
+    });
   }
 }
