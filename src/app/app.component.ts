@@ -21,5 +21,9 @@ export class AppComponent {
     this.localStorage.get('token').subscribe((res) => {
       console.log('get', res);
     });
+
+    this.localStorage.destroy('token').subscribe((res) => {
+      console.log('is deletd', res);
+    });
   }
 }
