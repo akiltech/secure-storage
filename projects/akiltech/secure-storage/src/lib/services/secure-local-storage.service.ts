@@ -59,10 +59,26 @@ export class SecureLocalStorageService implements StorageInterface {
    *
    * @param key
    *
-   * @returns Observable<string>
+   * @returns Observable<string|boolean>
    */
-  get(key: string): Observable<string> {
-    return undefined;
+  get(key: string): Observable<string|boolean> {
+    return new Observable(observer => {
+      const storageKey = this.config.encryptKey ? this.cryptService.encryptKey(key) : key;
+
+      if (!key) {
+        return observer.next(false);
+      }
+
+      if (!this.storage.has(storageKey)) {
+        return observer.next(false);
+      }
+
+      return observer.next(
+        this.cryptService.decryptString(
+          this.storage.get(storageKey)
+        )
+      );
+    });
   }
 
   /**
@@ -98,7 +114,7 @@ export class SecureLocalStorageService implements StorageInterface {
         return observer.next(false);
       }
 
-      const response = this.storage.set(
+      this.storage.set(
         this.config.encryptKey ? this.cryptService.encryptKey(key) : key,
         this.cryptService.encryptString(value)
       );

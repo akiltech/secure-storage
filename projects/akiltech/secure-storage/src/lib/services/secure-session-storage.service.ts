@@ -26,6 +26,7 @@ export class SecureSessionStorageService implements StorageInterface {
    *
    * @param storage
    * @param config
+   * @param cryptService
    */
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
@@ -58,10 +59,26 @@ export class SecureSessionStorageService implements StorageInterface {
    *
    * @param key
    *
-   * @returns Observable<string>
+   * @returns Observable<string|boolean>
    */
-  get(key: string): Observable<string> {
-    return undefined;
+  get(key: string): Observable<string | boolean> {
+    return new Observable(observer => {
+      const storageKey = this.config.encryptKey ? this.cryptService.encryptKey(key) : key;
+
+      if (!key) {
+        return observer.next(false);
+      }
+
+      if (!this.storage.has(storageKey)) {
+        return observer.next(false);
+      }
+
+      return observer.next(
+        this.cryptService.decryptString(
+          this.storage.get(storageKey)
+        )
+      );
+    });
   }
 
   /**

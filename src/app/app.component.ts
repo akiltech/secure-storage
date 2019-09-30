@@ -15,7 +15,11 @@ export class AppComponent {
     });
 
     this.localStorage.has('token').subscribe((res) => {
-      console.log(res);
+      console.log('has', res);
+    });
+
+    this.localStorage.get('token').subscribe((res) => {
+      console.log('get', res);
     });
   }
 }

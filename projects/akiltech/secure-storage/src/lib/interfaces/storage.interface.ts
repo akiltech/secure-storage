@@ -27,9 +27,9 @@ export interface StorageInterface {
    *
    * @param key
    *
-   * @returns Observable<string>
+   * @returns Observable<string|boolean>
    */
-  get(key: string): Observable<string>;
+  get(key: string): Observable<string|boolean>;
 
   /**
    * Destroy storage key.
