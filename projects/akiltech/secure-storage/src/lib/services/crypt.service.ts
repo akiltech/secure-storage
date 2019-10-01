@@ -2,7 +2,9 @@ import { Injectable, Inject } from '@angular/core';
 /**
  * Module config.
  */
-import { CryptConfig, CRYPT_CONFIG } from '../config';
+import { CRYPT_CONFIG } from '../config';
+import { SecureStorageConfig } from '../interfaces/config.interface';
+
 /**
  * Tiers part.
  */
@@ -22,7 +24,7 @@ export class CryptService {
    *
    * @param config
    */
-  constructor(@Inject(CRYPT_CONFIG) private config: CryptConfig) {
+  constructor(@Inject(CRYPT_CONFIG) private config: SecureStorageConfig) {
     /**
      * Set secret key.
      */

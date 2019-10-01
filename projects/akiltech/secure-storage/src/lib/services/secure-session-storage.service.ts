@@ -4,7 +4,8 @@ import { StorageInterface } from '../interfaces/storage.interface';
 /**
  * Module config
  */
-import { CryptConfig, CRYPT_CONFIG } from '../config';
+import { CRYPT_CONFIG } from '../config';
+import { SecureStorageConfig } from '../interfaces/config.interface';
 
 /**
  * Vendor
@@ -30,7 +31,7 @@ export class SecureSessionStorageService implements StorageInterface {
    */
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
-    @Inject(CRYPT_CONFIG) private config: CryptConfig,
+    @Inject(CRYPT_CONFIG) private config: SecureStorageConfig,
     private cryptService: CryptService
   ) { }
 

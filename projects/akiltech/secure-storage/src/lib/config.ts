@@ -1,16 +1,9 @@
-import {InjectionToken} from '@angular/core';
-
-/**
- * Service config.
- */
-export interface CryptConfig {
-  secretKey: string;
-  encryptKey?: boolean;
-}
+import { InjectionToken } from '@angular/core';
+import { SecureStorageConfig } from './interfaces/config.interface';
 
 /**
  * Define injectionToken.
  */
-export const CRYPT_CONFIG = new InjectionToken<CryptConfig>(
+export const CRYPT_CONFIG = new InjectionToken<SecureStorageConfig>(
   'CryptConfig'
 );
