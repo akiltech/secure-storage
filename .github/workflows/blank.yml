@@ -5,13 +5,12 @@ on: [push]
 jobs:
   build:
 
-    runs-on: node-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install package.json
-      run: npm install
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+        run: npm install
+        run: npm test
