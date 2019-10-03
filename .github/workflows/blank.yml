@@ -5,18 +5,13 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: node-latest
 
-    strategy:
-      matrix:
-        node: [ '10', '8' ]
-
-    name: Node ${{ matrix.node }} sample
     steps:
       - uses: actions/checkout@v1
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm install
-      - run: npm test
+      - name: Install package.json
+        run: npm install
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
