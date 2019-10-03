@@ -41,16 +41,16 @@ export class AppModule { }
 
 There are several methods to facilitate the use of a service, you should know that each method returns an `observable`.
 
-#### Get
+#### GET
 
 The `get` method allows you to retrieve the value of your recording.
 
 | Parameter(s) | Response | Type |
 |--------------|----------|------|
-| `key` | `String` (key value) |
+| `key` | `String` (key value) | Observable |
 
 
-#### Put
+#### PUT
 
 This method is used to record a value.
 
@@ -58,7 +58,7 @@ This method is used to record a value.
 |--------------|----------|------|
 | `key` and `value` | `Boolean` (true or false) | Observable |
 
-#### Has
+#### HAS
 
 If you want to check the existence of an element of a key this method will allow you to do so.
 
@@ -66,7 +66,7 @@ If you want to check the existence of an element of a key this method will allow
 |--------------|----------|------|
 | `key` | `Boolean` (true or false) | Observable |
 
-#### Delete
+#### DELETE
 
 Deleted a specific key.
 
@@ -74,7 +74,7 @@ Deleted a specific key.
 |--------------|----------|------|
 | `key` | `Boolean` (true or false) | Observable |
 
-#### Clean 
+#### CLEAN 
 
 This method allows you to delete all the elements saved at the browser level in the `session` or `local` storage.
 
