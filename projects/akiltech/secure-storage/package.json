@@ -4,5 +4,30 @@
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
-  }
+  },
+  "homepage": "https://github.com/akiltech/secure-storage#readme",
+  "author": {
+    "name": "Akil technologies"
+  },
+  "maintainers": [
+    {
+      "name": "Houssene Dao",
+      "email": "dao.houssene@gmail.com",
+      "url": "https://github.com/houssenedao"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Houssene Dao",
+      "email": "dao.houssene@gmail.com",
+      "url": "https://github.com/houssenedao"
+    }
+  ],
+  "keywords": ["secure storage", "secure", "local storage", "session storage"]
 }
