@@ -15,7 +15,9 @@ $ yarn add @akiltech/secure-storage
 ## Configuration
 
 ```typescript
-import { SecureStorageModule } from '@akiltech/secure-storage';
+import { SecureStorageModule, SecureStorageConfig } from '@akiltech/secure-storage';
+
+
 
 @NgModule({
   declarations: [],
