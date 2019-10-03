@@ -5,12 +5,12 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-    
+    runs-on: node-latest
+
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Install package.json
+      run: npm install
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,

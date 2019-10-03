@@ -36,3 +36,64 @@ export class AppModule { }
 ```
 
 ## How to use
+
+### Available Methods
+
+There are several methods to facilitate the use of a service, you should know that each method returns an `observable`.
+
+#### Get
+
+The `get` method allows you to retrieve the value of your recording.
+
+| Parameter(s) | Response | Type |
+|--------------|----------|------|
+| `key` | `String` (key value) |
+
+
+#### Put
+
+This method is used to record a value.
+
+| Parameter(s) | Response | Type |
+|--------------|----------|------|
+| `key` and `value` | `Boolean` (true or false) | Observable |
+
+#### Has
+
+If you want to check the existence of an element of a key this method will allow you to do so.
+
+| Parameter(s) | Response | Type |
+|--------------|----------|------|
+| `key` | `Boolean` (true or false) | Observable |
+
+#### Delete
+
+Deleted a specific key.
+
+| Parameter(s) | Response | Type |
+|--------------|----------|------|
+| `key` | `Boolean` (true or false) | Observable |
+
+#### Clean 
+
+This method allows you to delete all the elements saved at the browser level in the `session` or `local` storage.
+
+| Parameter(s) | Response | Type |
+|--------------|----------|------|
+| `nothing` | `Boolean` (true or false) | Observable |
+
+### Session Storage
+
+First of all, import the service
+
+```typescript
+import { SecureSessionStorageService } from '@akiltech/secure-storage';
+```
+
+### Local Storage
+
+First of all, import the service
+
+```typescript
+import { SecureLocalStorageService } from '@akiltech/secure-storage';
+```
