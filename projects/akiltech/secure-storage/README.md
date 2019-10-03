@@ -37,6 +37,22 @@ export class AppModule { }
 
 ## How to use
 
+### Session Storage
+
+First of all, import the service
+
+```typescript
+import { SecureSessionStorageService } from '@akiltech/secure-storage';
+```
+
+### Local Storage
+
+First of all, import the service
+
+```typescript
+import { SecureLocalStorageService } from '@akiltech/secure-storage';
+```
+
 ### Available Methods
 
 There are several methods to facilitate the use of a service, you should know that each method returns an `observable`.
@@ -81,19 +97,3 @@ This method allows you to delete all the elements saved at the browser level in 
 | Parameter(s) | Response | Type |
 |--------------|----------|------|
 | `nothing` | `Boolean` (true or false) | Observable |
-
-### Session Storage
-
-First of all, import the service
-
-```typescript
-import { SecureSessionStorageService } from '@akiltech/secure-storage';
-```
-
-### Local Storage
-
-First of all, import the service
-
-```typescript
-import { SecureLocalStorageService } from '@akiltech/secure-storage';
-```
